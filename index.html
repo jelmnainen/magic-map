@@ -23,6 +23,10 @@
     <script>
       var map;
       function initMap() {
+        var road_light  = "#705960"
+        var road_dark   = "#3d1c25"
+        var park        = "#bfa475"//"c5cc8b"
+        var center      = "b837a6"
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 60.4323, lng: 22.2822},
           zoom: 13,
@@ -31,7 +35,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#ebe3cd"
+                        "color": "#915327"
                       }
                     ]
                   },
@@ -116,7 +120,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#dfd2ae"
+                        "color": park
                       }
                     ]
                   },
@@ -134,7 +138,7 @@
                     "elementType": "geometry.fill",
                     "stylers": [
                       {
-                        "color": "#a5b076"
+                        "color": park
                       }
                     ]
                   },
@@ -152,7 +156,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#f5f1e6"
+                        "color": road_light
                       }
                     ]
                   },
@@ -161,7 +165,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#fdfcf8"
+                        "color": road_dark
                       }
                     ]
                   },
@@ -170,7 +174,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#f8c967"
+                        "color": road_dark
                       }
                     ]
                   },
@@ -179,7 +183,7 @@
                     "elementType": "geometry.stroke",
                     "stylers": [
                       {
-                        "color": "#e9bc62"
+                        "color": road_dark
                       }
                     ]
                   },
@@ -188,7 +192,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#e98d58"
+                        "color": road_dark
                       }
                     ]
                   },
@@ -197,7 +201,7 @@
                     "elementType": "geometry.stroke",
                     "stylers": [
                       {
-                        "color": "#db8555"
+                        "color": road_dark
                       }
                     ]
                   },
@@ -206,7 +210,7 @@
                     "elementType": "labels.text.fill",
                     "stylers": [
                       {
-                        "color": "#806b63"
+                        "color": road_dark
                       }
                     ]
                   },
@@ -215,7 +219,7 @@
                     "elementType": "geometry",
                     "stylers": [
                       {
-                        "color": "#dfd2ae"
+                        "color": road_light
                       }
                     ]
                   },
@@ -224,7 +228,7 @@
                     "elementType": "labels.text.fill",
                     "stylers": [
                       {
-                        "color": "#8f7d77"
+                        "color": road_light
                       }
                     ]
                   },
@@ -233,7 +237,7 @@
                     "elementType": "labels.text.stroke",
                     "stylers": [
                       {
-                        "color": "#ebe3cd"
+                        "color": road_light
                       }
                     ]
                   },
