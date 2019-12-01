@@ -1,3 +1,7 @@
+# build/packege folders
 /.git
 dist/
 node_modules/
+
+# Secrets
+export_secrets.sh

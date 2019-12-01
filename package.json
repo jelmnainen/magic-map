@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "webpack-dev-server --config webpack.dev.config.js --open",
-    "build-dev": "webpack --config webpack.dev.config.js"
+    "dev": "webpack-dev-server --config webpack.dev.config.js --open --env.MAP_APP_API_KEY=$MAP_APP_API_KEY",
+    "build-dev": "webpack --config webpack.dev.config.js --env.MAP_APP_API_KEY=$MAP_APP_API_KEY"
   },
   "repository": {
     "type": "git",

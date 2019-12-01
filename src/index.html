@@ -17,19 +17,9 @@
         padding: 0;
       }
     </style>
-    <script>
-      console.log("index.html HTML loaded")
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= MAP_APP_API_KEY %>&callback=initMap"></script>
   </head>
   <body>
-    <div id="map"></div>
-    <!--<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATbpaX38Dn6GjHS0EnDY6KVKGPGaga3xw&callback=initMap"
-      async
-      defer
-    >
-    </script>
-  -->
-    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+    <div id="map" />
   </body>
 </html>

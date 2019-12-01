@@ -1,8 +1,8 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = env => ({
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
@@ -15,10 +15,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: 'head',
       hash: true,
+      templateParameters: {
+        'MAP_APP_API_KEY': env.MAP_APP_API_KEY,
+      },
       template: './src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
     }),
   ]
-};
+});
