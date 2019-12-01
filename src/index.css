@@ -9,3 +9,16 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+#map-blanker {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f2cb98;
+  text-align: center;
+  padding-top: 50%;
+  color: #8a394f;
+}
+
+.hidden {
+  display: none
+}
