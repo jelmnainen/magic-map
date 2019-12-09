@@ -1,11 +1,12 @@
-var map;
-function initMap() {
+let map;
+function initMap(elemId) {
   var road_light  = "#705960"
   var road_dark   = "#3d1c25"
   var park        = "#bfa475"//"c5cc8b"
   var center      = "b837a6"
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById(elemId), {
     center: {lat: 60.4323, lng: 22.2822},
+    disableDefaultUI: true,
     zoom: 13,
     styles:       [
             {
@@ -249,3 +250,5 @@ function initMap() {
 
   });
 }
+
+export { map, initMap }
