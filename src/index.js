@@ -24,6 +24,13 @@ const testForMagicWords = (blankerElem) => (e) => {
   }
 }
 
+const devShowMap = () => {
+  const blankerElem = document.getElementById('map-blanker')
+  const mapElem = document.getElementById('map')
+  mapElem.classList.remove("hidden")
+  blankerElem.classList.add("hidden")
+}
+
 const magic_words = magicWords.map(magicWordTransform)
 
 const tryToHideExtraMapStuff = () => {
