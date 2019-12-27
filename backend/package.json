@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "webpack-dev-server --config webpack.dev.config.js --open --env.MAP_APP_API_KEY=$MAP_APP_API_KEY",
-    "build-dev": "webpack --config webpack.dev.config.js --env.MAP_APP_API_KEY=$MAP_APP_API_KEY"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -20,15 +19,5 @@
   "homepage": "https://github.com/jelmnainen/magic-map#readme",
   "dependencies": {
     "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "copy-webpack-plugin": "^5.0.5",
-    "css-loader": "^3.2.0",
-    "file-loader": "^5.0.2",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^1.0.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
   }
 }
