@@ -7,6 +7,12 @@ module.exports = env => ({
   devtool: "inline-source-map",
   devServer: {
     contentBase: 'dist',
+    proxy: {
+      '/api': {
+        'target': 'http://localhost:3000',
+        'pathRewrite': {'^/api': ''}
+      }
+    }
   },
   entry: './src/index.js',
   output: {

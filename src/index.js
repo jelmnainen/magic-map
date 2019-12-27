@@ -36,17 +36,31 @@ const tryToHideExtraMapStuff = () => {
   }
 }
 
+const createMarker = (marker, map) => {
+  const markerRef = new google.maps.Marker({
+    position: {lat: marker.location[0], lng: marker.location[1]},
+    map: map,
+  })
+}
+
 window.onload = function() {
   // setup blanker
   const blanker = document.getElementById('map-blanker')
   blanker.oninput = testForMagicWords(blanker)
 
+  //remove this in production
+  devShowMap()
+
   //setup map
   initMap('map')
 
-  const testMarker = new google.maps.Marker({
-    position: {lat: 60.4323, lng: 22.2822},
-    map: map,
-    title: "hello world"
-  })
+  fetch('http://localhost:8080/api/markers')
+    .then(res => res.json())
+    .then((res) => {
+      console.log(res)
+      const marker = res.filter((r) => !r.done)
+      console.log(marker)
+      createMarker(res[0], map)
+    })
+    .catch(err => { console.log('err', err)})
 }
