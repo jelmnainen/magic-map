@@ -1,5 +1,6 @@
 let map;
 function initMap(elemId) {
+
   var road_light  = "#705960"
   var road_dark   = "#3d1c25"
   var park        = "#bfa475"//"c5cc8b"
@@ -247,7 +248,6 @@ function initMap(elemId) {
               ]
             }
           ]
-
   });
 }
 
