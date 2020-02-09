@@ -1,7 +1,19 @@
+import io from 'socket.io-client'
 import './index.css'
 import magicWords from '../magicWords'
 import { map, initMap } from './map'
 
+
+// Socket.io
+const socket = io('http://localhost:3000')
+
+socket.on('activate', (newMarker) => {
+  console.log('activate', newMarker)
+  removeMarker()
+  createMarker(newMarker, map)
+})
+
+// Magic words
 const magicWordTransform = (word) =>
   word
     .toLowerCase()
@@ -24,14 +36,18 @@ const testForMagicWords = (blankerElem) => (e) => {
   }
 }
 
+const magic_words = magicWords.map(magicWordTransform)
+
+// Google maps
+
+let activeMarker = {}
+
 const devShowMap = () => {
   const blankerElem = document.getElementById('map-blanker')
   const mapElem = document.getElementById('map')
   mapElem.classList.remove("hidden")
   blankerElem.classList.add("hidden")
 }
-
-const magic_words = magicWords.map(magicWordTransform)
 
 const tryToHideExtraMapStuff = () => {
   // bottom right text
@@ -43,11 +59,22 @@ const tryToHideExtraMapStuff = () => {
   }
 }
 
+const removeMarker = () => {
+  activeMarker.setMap(null)
+  activeMarker = {}
+}
+
 const createMarker = (marker, map) => {
+  console.log('create new marker', marker, map)
   const markerRef = new google.maps.Marker({
     position: {lat: marker.location[0], lng: marker.location[1]},
     map: map,
   })
+  activeMarker = markerRef
+}
+
+const sortByOrderProp = (a, b) => {
+  return a.order - b.order
 }
 
 window.onload = function() {
@@ -61,13 +88,10 @@ window.onload = function() {
   //setup map
   initMap('map')
 
-  fetch('http://localhost:8080/api/markers')
+  fetch('http://localhost:8080/api/marker')
     .then(res => res.json())
     .then((res) => {
-      console.log(res)
-      const marker = res.filter((r) => !r.done)
-      console.log(marker)
-      createMarker(res[0], map)
+      createMarker(res, map)
     })
     .catch(err => { console.log('err', err)})
 }

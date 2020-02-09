@@ -1,9 +1,17 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 1em;
 }
 
-h1 {
+.not-active {
   color: red;
+}
+
+.active {
+  color: green;
+}
+
+.marker-wrapper td {
+  padding: 0 1em;
 }
