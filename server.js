@@ -4,9 +4,6 @@ const io = require('socket.io')(http)
 
 const PORT = process.env.PORT || 3000
 
-
-
-
 let markers = [
   { 'id': 1, 'order': 1, 'active': false, 'markerIcon': null, 'location': [60.439950, 22.262084] },
   { 'id': 2, 'order': 2, 'active': true, 'markerIcon': null, 'location': [60.451050, 22.263076] },
