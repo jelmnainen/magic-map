@@ -5,10 +5,9 @@ import { map, initMap } from './map'
 
 
 // Socket.io
-const socket = io('http://localhost:3000')
+const socket = io("http://localhost:3000")
 
 socket.on('activate', (newMarker) => {
-  console.log('activate', newMarker)
   removeMarker()
   createMarker(newMarker, map)
 })
@@ -52,7 +51,6 @@ const devShowMap = () => {
 const tryToHideExtraMapStuff = () => {
   // bottom right text
   const elementsToHide = document.getElementsByClassName('gm-style-cc')
-  console.log('hidable elements:', elementsToHide)
   for (let i=0; i<elementsToHide.length; i++) {
     let elem = elementsToHide[i]
     elem.classList.add("hidden")
@@ -65,7 +63,6 @@ const removeMarker = () => {
 }
 
 const createMarker = (marker, map) => {
-  console.log('create new marker', marker, map)
   const markerRef = new google.maps.Marker({
     position: {lat: marker.location[0], lng: marker.location[1]},
     map: map,
@@ -83,12 +80,12 @@ window.onload = function() {
   blanker.oninput = testForMagicWords(blanker)
 
   //remove this in production
-  devShowMap()
+  // devShowMap()
 
   //setup map
   initMap('map')
 
-  fetch('http://localhost:8080/api/marker')
+  fetch('/marker')
     .then(res => res.json())
     .then((res) => {
       createMarker(res, map)

@@ -1,4 +1,5 @@
-const app = require('express')()
+const express = require('express')
+const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 
@@ -23,7 +24,9 @@ const activateMarkerWithId = (id) => (marker) => {
   return marker
 }
 
-app.get('/', (req, res) => res.send('Hello world!'))
+app.use('/', express.static('frontend/dist/'))
+
+app.use('/control-plane', express.static('control-plane/dist/'))
 
 app.get('/marker', (req, res) => {
   const marker = markers.filter((m) => m.active === true)[0]
