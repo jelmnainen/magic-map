@@ -1,7 +1,5 @@
 import './index.css'
 
-const apiUrl = 'http://localhost:8081/api'
-
 const put = (url, body) => {
   const options = {
     method: "PUT",
@@ -24,7 +22,7 @@ const clearMarkers = (data) => {
 }
 
 const activateMarkerWithId = (id) => {
-  put(`${apiUrl}/markers/activate/${id}`)
+  put(`/markers/activate/${id}`)
     .then((res) => res.json())
     .then((res) => {
       clearMarkers()
@@ -68,7 +66,7 @@ const createMarkers = (markers) => {
 }
 
 window.onload = () => {
-  fetch('http://localhost:8081/api/markers')
+  fetch(`/markers`)
     .then(res => res.json())
     .then((res) => {
       createMarkers(res)
