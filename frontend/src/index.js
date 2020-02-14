@@ -8,6 +8,7 @@ import { map, initMap } from './map'
 const socket = io("http://localhost:3000")
 
 socket.on('activate', (newMarker) => {
+  console.log('waitwhat', newmarker)
   removeMarker()
   createMarker(newMarker, map)
 })
