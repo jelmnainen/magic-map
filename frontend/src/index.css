@@ -14,10 +14,78 @@ html, body {
   height: 100vh;
   background-color: #f2cb98;
   text-align: center;
-  padding-top: 50%;
   color: #8a394f;
+  padding: 50vh 0;
 }
 
 .hidden {
   display: none
+}
+
+/* .flash {
+  animation-name: whiteflash;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-ease-in-out;
+}
+
+@keyframes whiteflash {
+  0%    { background-color: #f2cb98 }
+  50%   { background-color: white; }
+  100%  { background-color: #f2cb98 }
+} */
+
+.presentation-text-wrapper {
+  min-height: 100vh;
+  background-color: #f2cb98;
+}
+.presentation-text {
+  font-size: 2em;
+  line-height: 2.5em;
+}
+
+@keyframes textflash {
+  0%    { color: #f2cb98 }
+  50%   { color: white; }
+  100%  { color: #8a394f }
+}
+
+.showtext {
+  color: #8a394f;
+  animation-name: textflash;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-ease-in-out;
+}
+
+.fade-away-text {
+  color: #f2cb98;
+  animation-name: textfade;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-ease-in-out;
+}
+
+@keyframes textfade {
+  0%    { color: #8a394f }
+  100%  { color: #f2cb98 }
+}
+
+#presentation-text-wrapper {
+  padding: 10vh;
+  text-align: center;
+  background-color: #f2cb98;
+  min-height: 100vh;
+}
+
+.hidden-text {
+  color: #f2cb98;
+}
+
+#msg-10 {
+  font-size: 3em;
+}
+
+#msg-11 {
+  font-size: 1.5em;
 }

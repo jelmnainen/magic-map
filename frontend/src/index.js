@@ -43,14 +43,58 @@ function getCookie(cname) {
   return null;
 }
 
+const createTextSpan = (content) => {
+  const span = document.createElement("span")
+  const text = document.createTextNode(content)
+  span.classList.add("presentation-text")
+  span.classList.add("hidden-text")
+  span.appendChild(text)
+  return span
+}
+
+const showMap = () => {
+  const blanker = document.getElementById('map-blanker')
+  setTimeout(() => {
+    blanker.classList.add("hidden")
+  },750)
+  for (let i = 1; i <= 9; i++) {
+    let msg = document.getElementById(`msg-${i}`)
+    const timeout = Math.floor(Math.random() * 3000) + 750
+    setTimeout(() => {
+      msg.classList.remove("hidden-text")
+      msg.classList.add("showtext")
+    }, timeout)
+    setTimeout(() => {
+      msg.classList.add("fade-away-text")
+      msg.classList.remove("showtext")
+      setTimeout(() => {
+        msg.remove()
+        const main = document.getElementById('msg-10')
+        const hox = document.getElementById('msg-11')
+        main.classList.add("showtext")
+        main.classList.remove("hidden-text")
+        setTimeout(() => {
+          hox.classList.add("showtext")
+          hox.classList.remove("hidden-text")
+          setTimeout(() => {
+            const presentationElem = document.getElementById('presentation-text-wrapper')
+            const mapElem = document.getElementById('map')
+            mapElem.classList.remove("hidden")
+            presentationElem.classList.add("hidden")
+          }, 7500)
+        }, 1000)
+      }, 750)
+    }, 10000)
+  }
+}
+
 const testForMagicWords = (blankerElem) => (e) => {
   const val = magicWordTransform(blankerElem.textContent)
 
   for (let word in magic_words) {
     if (val == magic_words[word]) {
-      const mapElem = document.getElementById('map')
-      mapElem.classList.remove("hidden")
-      blankerElem.classList.add("hidden")
+      blankerElem.classList.add("flash")
+      showMap()
       setCookie('hadCorrectPassword', 'true')
       // IF you want to be a nice person comment this
       // setTimeout(tryToHideExtraMapStuff, 600)
