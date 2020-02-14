@@ -76,6 +76,7 @@ html, body {
   text-align: center;
   background-color: #f2cb98;
   min-height: 100vh;
+  font-size: 1.2vh;
 }
 
 .hidden-text {

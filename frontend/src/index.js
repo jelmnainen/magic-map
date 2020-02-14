@@ -108,11 +108,13 @@ const magic_words = magicWords.map(magicWordTransform)
 
 let activeMarker = {}
 
-const skipBlanker = () => {
+const skipBlankers = () => {
   const blankerElem = document.getElementById('map-blanker')
   const mapElem = document.getElementById('map')
+  const presentationElem = document.getElementById('presentation-text-wrapper')
   mapElem.classList.remove("hidden")
   blankerElem.classList.add("hidden")
+  presentationElem.classList.add("hidden")
 }
 
 const tryToHideExtraMapStuff = () => {
@@ -148,7 +150,7 @@ window.onload = function() {
   blanker.oninput = testForMagicWords(blanker)
 
   if (getCookie('hadCorrectPassword') === 'true') {
-    skipBlanker()
+    skipBlankers()
   }
 
   //setup map
