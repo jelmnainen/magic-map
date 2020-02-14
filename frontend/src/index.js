@@ -5,10 +5,10 @@ import { map, initMap } from './map'
 
 
 // Socket.io
-const socket = io("http://localhost:3000")
+const socket = io("/")
 
 socket.on('activate', (newMarker) => {
-  console.log('waitwhat', newmarker)
+  console.log('waitwhat', newMarker)
   removeMarker()
   createMarker(newMarker, map)
 })
