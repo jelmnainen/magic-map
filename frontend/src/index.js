@@ -66,6 +66,7 @@ const createMarker = (marker, map) => {
   const markerRef = new google.maps.Marker({
     position: {lat: marker.location[0], lng: marker.location[1]},
     map: map,
+    icon: `/static/${marker.icon}.png`,
   })
   activeMarker = markerRef
 }
